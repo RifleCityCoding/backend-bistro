@@ -30,8 +30,8 @@ class MenuConnection(Base):
     __tablename__ = "menuconnect"
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
-    category_id: Mapped[int] = mapped_column(ForeignKey("category.category_id"))
-    menu_id: Mapped[int] = mapped_column(ForeignKey("menu.menu_item_id"))
+    category_id: Mapped[int] = mapped_column(ForeignKey("category.category_pivot_id"))
+    menu_id: Mapped[int] = mapped_column(ForeignKey("menu.menu_pivot_id"))
 
     def __repr__(self) -> str:
         return f"MenuItem(id={self.id!r}, category_id={self.category_id!r}, menu_id={self.menu_id})"
